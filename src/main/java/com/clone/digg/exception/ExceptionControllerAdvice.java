@@ -52,7 +52,7 @@ public class ExceptionControllerAdvice extends ResponseEntityExceptionHandler {
 	 * @return
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@ExceptionHandler(DiggCloneServiceException.class)
+	@ExceptionHandler(Exception.class)
 	@ResponseBody
 	ResponseEntity<?> handleControllerException(HttpServletRequest request, Throwable ex) {
 		DiggCloneServiceError diggCloneServiceError = null;
