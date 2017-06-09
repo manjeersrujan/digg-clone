@@ -34,9 +34,9 @@ public class TopicController {
 		return genericServiceResponse;
 	}
 
-	@RequestMapping(value = "/topic", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/topic", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public GenericServiceResponse<PostTopicResponse> postTopic(
-			@RequestParam(name = "userId", required = true) String userId, @RequestBody Topic topic)
+			@RequestParam(name = "userId") String userId, @RequestBody Topic topic)
 			throws DiggCloneServiceException {
 		GenericServiceResponse<PostTopicResponse> genericServiceResponse = new GenericServiceResponse<PostTopicResponse>();
 		PostTopicResponse postTopicResponse = topicService.postTopic(userId, topic);
