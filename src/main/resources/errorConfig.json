@@ -1,0 +1,6 @@
+{
+	"GENERIC_ERROR": {
+		"status": 500,
+		"errorMessage": "Internal Server Error"
+	}
+}
