@@ -13,6 +13,11 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ * @author Manjeer
+ *
+ * Created on Jun 10, 2017
+ */
 @SpringBootApplication
 @Configuration
 @EnableAutoConfiguration
@@ -24,6 +29,9 @@ public class Application extends WebMvcConfigurerAdapter {
 		SpringApplication.run(Application.class, args);
 	}
 
+	/**
+	 * @return
+	 */
 	@Bean
 	public Executor asyncExecutor() {
 		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();

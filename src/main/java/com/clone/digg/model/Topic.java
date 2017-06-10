@@ -4,7 +4,6 @@
 package com.clone.digg.model;
 
 import java.io.Serializable;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +18,7 @@ public class Topic implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 7173421005510475236L;
+	String id;
 	String title;
 	String content;
 	Map<VoteType, Integer> voteCount = new HashMap<>();
@@ -96,6 +96,9 @@ public class Topic implements Serializable {
 	 */
 	public void vote(VoteType voteType) {
 		if (voteType != null) {
+			/*
+			 * Synchronizing to keep votes of a topic consistent.
+			 */
 			synchronized (this) {
 				Integer count = voteCount.get(voteType);
 				if (count == null) {
@@ -105,6 +108,29 @@ public class Topic implements Serializable {
 				}
 			}
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Topic [title=" + title + ", content=" + content + ", voteCount=" + voteCount + ", createdUserId="
+				+ createdUserId + "]";
+	}
+
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

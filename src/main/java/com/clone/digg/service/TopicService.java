@@ -1,5 +1,6 @@
 package com.clone.digg.service;
 
+import com.clone.digg.controller.GetAllTopicsResponse;
 import com.clone.digg.exception.DiggCloneServiceException;
 import com.clone.digg.model.GetPopulorTopicsResponse;
 import com.clone.digg.model.GetTopicResponse;
@@ -21,6 +22,8 @@ public interface TopicService {
 
 	VoteTopicResponse voteTopic(String topicId, VoteType voteType) throws DiggCloneServiceException;
 
-	GetPopulorTopicsResponse getPopulorTopics() throws DiggCloneServiceException;
+	GetPopulorTopicsResponse getPopulorTopics(VoteType voteType) throws DiggCloneServiceException;
+
+	GetAllTopicsResponse getAllTopics();
 
 }

@@ -2,5 +2,36 @@
 	"GENERIC_ERROR": {
 		"status": 500,
 		"errorMessage": "Internal Server Error"
-	}
+	},
+	"TOPIC_ID_REQUIRED": {
+		"status": 400,
+		"errorMessage": "Topic ID is requred"
+	},
+	"TOPIC_NOT_FOUND": {
+		"status": 404,
+		"errorMessage": "Topic not found"	
+	},
+	"TOPIC_IS_EMPTY": {
+		"status": 400,
+		"errorMessage": "Topic should not be empty"	
+	},
+	"TITLE_OF_TOPIC_TOO_LONG": {
+		"status": 400,
+		"errorMessage": "Title of the topic cannot be more than 50 chars"	
+	},
+	"CONTENT_OF_TOPIC_TOO_LONG": {
+		"status": 400,
+		"errorMessage": "Content of the topic cannot be more than 255 chars"	
+	},
+	"VOTE_TYPE_IS_REQUIRED": {
+		"status": 400,
+		"errorMessage": "Vote type is requred"	
+	},
+	"TOPIC_REQUIRED_TO_UPDATE_POPULOR_TOPICS": {
+		"status": 400,
+		"errorMessage": "Topic is required to update popular topics"	
+	},
+	"VOTE_TYPE_REQUIRED_TO_UPDATE_POPULOR_TOPICS": {
+		"status": 404,
+		"errorMessage": "Vote type required to update popular topics"	}
 }

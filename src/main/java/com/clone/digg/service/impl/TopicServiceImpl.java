@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import com.clone.digg.controller.GetAllTopicsResponse;
 import com.clone.digg.dao.TopicsDao;
 import com.clone.digg.exception.DiggCloneServiceException;
 import com.clone.digg.model.GetPopulorTopicsResponse;
@@ -28,6 +29,9 @@ public class TopicServiceImpl implements TopicService {
 	@Autowired
 	TopicsDao topicsDao;
 
+	/* (non-Javadoc)
+	 * @see com.clone.digg.service.TopicService#getTopic(java.lang.String)
+	 */
 	@Override
 	public GetTopicResponse getTopic(String topicId) throws DiggCloneServiceException {
 		if (StringUtils.isEmpty(topicId)) {
@@ -43,6 +47,9 @@ public class TopicServiceImpl implements TopicService {
 		return getTopicResponse;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.clone.digg.service.TopicService#postTopic(java.lang.String, com.clone.digg.model.Topic)
+	 */
 	@Override
 	public PostTopicResponse postTopic(String userId, Topic topic) throws DiggCloneServiceException {
 		if (StringUtils.isEmpty(userId)) {
@@ -57,6 +64,10 @@ public class TopicServiceImpl implements TopicService {
 		return postTopicResponse;
 	}
 
+	/**
+	 * @param topic
+	 * @throws DiggCloneServiceException
+	 */
 	private void validateTopic(Topic topic) throws DiggCloneServiceException {
 		if (topic == null || StringUtils.isEmpty(topic.getTitle()) || StringUtils.isEmpty(topic.getContent())) {
 			throw new DiggCloneServiceException("TOPIC_IS_EMPTY");
@@ -72,6 +83,9 @@ public class TopicServiceImpl implements TopicService {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see com.clone.digg.service.TopicService#voteTopic(java.lang.String, com.clone.digg.model.VoteType)
+	 */
 	@Override
 	public VoteTopicResponse voteTopic(String topicId, VoteType voteType) throws DiggCloneServiceException {
 		if (StringUtils.isEmpty(topicId)) {
@@ -89,12 +103,28 @@ public class TopicServiceImpl implements TopicService {
 		return voteTopicResponse;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.clone.digg.service.TopicService#getPopulorTopics(com.clone.digg.model.VoteType)
+	 */
 	@Override
-	public GetPopulorTopicsResponse getPopulorTopics() throws DiggCloneServiceException {
-		List<Topic> populorTopics = topicsDao.getPopulorTopics();
+	public GetPopulorTopicsResponse getPopulorTopics(VoteType voteType) throws DiggCloneServiceException {
+		if (voteType == null) {
+			voteType = VoteType.UPVOTE;
+		}
+		List<Topic> populorTopics = topicsDao.getPopulorTopics(voteType);
 		GetPopulorTopicsResponse getPopulorTopicsResponse = new GetPopulorTopicsResponse();
 		getPopulorTopicsResponse.setPopulorTopics(populorTopics);
 		return getPopulorTopicsResponse;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.clone.digg.service.TopicService#getAllTopics()
+	 */
+	@Override
+	public GetAllTopicsResponse getAllTopics() {
+		GetAllTopicsResponse getAllTopicsResponse = new GetAllTopicsResponse();
+		getAllTopicsResponse.setTopics(topicsDao.getAllTopics());
+		return getAllTopicsResponse;
 	}
 
 }

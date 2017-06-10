@@ -3,12 +3,24 @@ package com.clone.digg.exception;
 import java.io.Serializable;
 
 
+/**
+ * @author Manjeer
+ *
+ * Created on Jun 10, 2017
+ */
 public class DiggCloneServiceError implements Serializable {
 
+	/**
+	 * 
+	 */
 	public DiggCloneServiceError() {
 		super();
 	}
 
+	/**
+	 * @param status
+	 * @param errorMessage
+	 */
 	public DiggCloneServiceError(int status, String errorMessage) {
 		super();
 		this.status = status;

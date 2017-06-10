@@ -21,6 +21,11 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
+/**
+ * @author Manjeer
+ *
+ * Created on Jun 10, 2017
+ */
 @ControllerAdvice("com.clone.digg")
 public class ExceptionControllerAdvice extends ResponseEntityExceptionHandler {
 

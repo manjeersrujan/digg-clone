@@ -3,6 +3,11 @@ package com.clone.digg.model;
 import java.io.Serializable;
 
 
+/**
+ * @author Manjeer
+ *
+ * Created on Jun 10, 2017
+ */
 public class GenericServiceResponse<T> implements Serializable {
 	
 	public GenericServiceResponse() {
