@@ -22,7 +22,7 @@ public class Topic implements Serializable {
 	String title;
 	String content;
 	Map<VoteType, Integer> voteCount = new HashMap<>();
-	String createdUserId;
+	String createdBy;
 
 	/**
 	 * 
@@ -79,16 +79,16 @@ public class Topic implements Serializable {
 	/**
 	 * @return the createdUserId
 	 */
-	public String getCreatedUserId() {
-		return createdUserId;
+	public String getcreatedBy() {
+		return createdBy;
 	}
 
 	/**
 	 * @param createdUserId
 	 *            the createdUserId to set
 	 */
-	public void setCreatedUserId(String createdUserId) {
-		this.createdUserId = createdUserId;
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 
 	/**
@@ -110,13 +110,15 @@ public class Topic implements Serializable {
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Topic [title=" + title + ", content=" + content + ", voteCount=" + voteCount + ", createdUserId="
-				+ createdUserId + "]";
+				+ createdBy + "]";
 	}
 
 	/**
@@ -127,7 +129,8 @@ public class Topic implements Serializable {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(String id) {
 		this.id = id;

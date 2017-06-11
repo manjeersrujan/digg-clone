@@ -56,8 +56,7 @@ public class TopicsDao {
 	 * @param topic
 	 * @return
 	 */
-	public String postTopic(String userId, Topic topic) {
-		topic.setCreatedUserId(userId);
+	public String postTopic(Topic topic) {
 		/*
 		 * This synchronization prevernts, different topics to have same ID.
 		 */

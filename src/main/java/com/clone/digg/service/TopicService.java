@@ -18,7 +18,7 @@ public interface TopicService {
 
 	GetTopicResponse getTopic(String topicId) throws DiggCloneServiceException;
 
-	PostTopicResponse postTopic(String userId, Topic topic) throws DiggCloneServiceException;
+	PostTopicResponse postTopic(Topic topic) throws DiggCloneServiceException;
 
 	VoteTopicResponse voteTopic(String topicId, VoteType voteType) throws DiggCloneServiceException;
 

@@ -29,7 +29,9 @@ public class TopicServiceImpl implements TopicService {
 	@Autowired
 	TopicsDao topicsDao;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.clone.digg.service.TopicService#getTopic(java.lang.String)
 	 */
 	@Override
@@ -47,17 +49,22 @@ public class TopicServiceImpl implements TopicService {
 		return getTopicResponse;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.clone.digg.service.TopicService#postTopic(java.lang.String, com.clone.digg.model.Topic)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.clone.digg.service.TopicService#postTopic(java.lang.String,
+	 * com.clone.digg.model.Topic)
 	 */
 	@Override
-	public PostTopicResponse postTopic(String userId, Topic topic) throws DiggCloneServiceException {
-		if (StringUtils.isEmpty(userId)) {
-			userId = "anonymous";
-		}
-		validateTopic(topic);
+	public PostTopicResponse postTopic(Topic topic) throws DiggCloneServiceException {
 
-		String topicId = topicsDao.postTopic(userId, topic);
+		validateTopic(topic);
+		
+		if (StringUtils.isEmpty(topic.getcreatedBy())) {
+			topic.setCreatedBy("anonymous");
+		}
+
+		String topicId = topicsDao.postTopic(topic);
 		PostTopicResponse postTopicResponse = new PostTopicResponse();
 		postTopicResponse.setTopicId(topicId);
 
@@ -83,8 +90,11 @@ public class TopicServiceImpl implements TopicService {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see com.clone.digg.service.TopicService#voteTopic(java.lang.String, com.clone.digg.model.VoteType)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.clone.digg.service.TopicService#voteTopic(java.lang.String,
+	 * com.clone.digg.model.VoteType)
 	 */
 	@Override
 	public VoteTopicResponse voteTopic(String topicId, VoteType voteType) throws DiggCloneServiceException {
@@ -103,8 +113,12 @@ public class TopicServiceImpl implements TopicService {
 		return voteTopicResponse;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.clone.digg.service.TopicService#getPopulorTopics(com.clone.digg.model.VoteType)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.clone.digg.service.TopicService#getPopulorTopics(com.clone.digg.model
+	 * .VoteType)
 	 */
 	@Override
 	public GetPopulorTopicsResponse getPopulorTopics(VoteType voteType) throws DiggCloneServiceException {
@@ -117,7 +131,9 @@ public class TopicServiceImpl implements TopicService {
 		return getPopulorTopicsResponse;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.clone.digg.service.TopicService#getAllTopics()
 	 */
 	@Override
