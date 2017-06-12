@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.clone.digg.exception.DiggCloneServiceException;
 import com.clone.digg.model.GenericServiceResponse;
+import com.clone.digg.model.GetAllTopicsResponse;
 import com.clone.digg.model.GetPopulorTopicsResponse;
 import com.clone.digg.model.GetTopicResponse;
 import com.clone.digg.model.PostTopicResponse;
@@ -22,6 +23,8 @@ import com.clone.digg.service.TopicService;
  * @author Manjeer
  *
  *         Created on Jun 10, 2017
+ *         
+ *         Controller for topic related APIs
  */
 @RestController
 public class TopicController {

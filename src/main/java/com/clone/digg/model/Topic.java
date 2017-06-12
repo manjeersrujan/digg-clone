@@ -11,6 +11,8 @@ import java.util.Map;
  * @author Manjeer
  *
  *         Created on Jun 10, 2017
+ *         
+ *         Model for a topic
  */
 public class Topic implements Serializable {
 

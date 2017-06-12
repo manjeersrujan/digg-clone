@@ -25,6 +25,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Manjeer
  *
  * Created on Jun 10, 2017
+ * 
+ * Exception handler for all services written in this codebase
  */
 @ControllerAdvice({"com.clone.digg","org.springframework"})
 public class ExceptionControllerAdvice extends ResponseEntityExceptionHandler {

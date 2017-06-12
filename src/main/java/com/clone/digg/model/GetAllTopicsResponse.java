@@ -1,13 +1,11 @@
 /**
  * 
  */
-package com.clone.digg.controller;
+package com.clone.digg.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.clone.digg.model.Topic;
 
 /**
  * @author Manjeer

@@ -17,6 +17,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @author Manjeer
  *
  * Created on Jun 10, 2017
+ * 
+ * Starting point of applications 
  */
 @SpringBootApplication
 @Configuration

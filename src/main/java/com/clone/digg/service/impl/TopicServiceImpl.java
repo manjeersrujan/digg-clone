@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.clone.digg.controller.GetAllTopicsResponse;
 import com.clone.digg.dao.TopicsDao;
 import com.clone.digg.exception.DiggCloneServiceException;
+import com.clone.digg.model.GetAllTopicsResponse;
 import com.clone.digg.model.GetPopulorTopicsResponse;
 import com.clone.digg.model.GetTopicResponse;
 import com.clone.digg.model.PostTopicResponse;
@@ -22,6 +22,8 @@ import com.clone.digg.service.TopicService;
  * @author Manjeer
  *
  *         Created on Jun 10, 2017
+ *         
+ *         Implementations of Topic APIs
  */
 @Component
 public class TopicServiceImpl implements TopicService {

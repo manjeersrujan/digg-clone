@@ -1,7 +1,7 @@
 package com.clone.digg.service;
 
-import com.clone.digg.controller.GetAllTopicsResponse;
 import com.clone.digg.exception.DiggCloneServiceException;
+import com.clone.digg.model.GetAllTopicsResponse;
 import com.clone.digg.model.GetPopulorTopicsResponse;
 import com.clone.digg.model.GetTopicResponse;
 import com.clone.digg.model.PostTopicResponse;
@@ -13,6 +13,8 @@ import com.clone.digg.model.VoteType;
  * @author Manjeer
  *
  * Created on Jun 10, 2017
+ * 
+ * API definitions of Topics
  */
 public interface TopicService {
 

@@ -4,6 +4,8 @@ package com.clone.digg.exception;
  * @author Manjeer
  *
  * Created on Jun 10, 2017
+ * 
+ * Custom Exception
  */
 public class DiggCloneServiceException extends Exception {
 

@@ -7,6 +7,8 @@ import java.io.Serializable;
  * @author Manjeer
  *
  * Created on Jun 10, 2017
+ * 
+ * Generic Error format
  */
 public class DiggCloneServiceError implements Serializable {
 
