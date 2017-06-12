@@ -38,7 +38,7 @@ public class TopicController {
 	 */
 	@RequestMapping(value = "/topic", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public GenericServiceResponse<GetTopicResponse> getTopic(
-			@RequestParam(name = "topicId", required = false) String topicId) throws DiggCloneServiceException {
+			@RequestParam(name = "topicId") String topicId) throws DiggCloneServiceException {
 		GenericServiceResponse<GetTopicResponse> genericServiceResponse = new GenericServiceResponse<GetTopicResponse>();
 		GetTopicResponse getTopicsResponse = topicService.getTopic(topicId);
 		genericServiceResponse.setPayload(getTopicsResponse);
@@ -70,7 +70,7 @@ public class TopicController {
 	 *             Create a topic
 	 */
 	@RequestMapping(value = "/topic", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public GenericServiceResponse<PostTopicResponse> postTopic(@RequestBody(required=false) Topic topic)
+	public GenericServiceResponse<PostTopicResponse> postTopic(@RequestBody Topic topic)
 			throws DiggCloneServiceException {
 		GenericServiceResponse<PostTopicResponse> genericServiceResponse = new GenericServiceResponse<PostTopicResponse>();
 		PostTopicResponse postTopicResponse = topicService.postTopic(topic);
@@ -89,7 +89,7 @@ public class TopicController {
 	 */
 	@RequestMapping(value = "/vote", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public GenericServiceResponse<VoteTopicResponse> voteTopic(
-			@RequestParam(name = "topicId", required = false) String topicId,
+			@RequestParam(name = "topicId") String topicId,
 			@RequestParam(name = "voteType", required = false) VoteType voteType) throws DiggCloneServiceException {
 		GenericServiceResponse<VoteTopicResponse> genericServiceResponse = new GenericServiceResponse<VoteTopicResponse>();
 		VoteTopicResponse voteTopicResponse = topicService.voteTopic(topicId, voteType);

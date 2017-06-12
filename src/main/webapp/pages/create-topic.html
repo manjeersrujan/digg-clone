@@ -1,16 +1,14 @@
 <div class="jumbotron text-center">
 	<p>Create a Topic</p>
-</div>
 
-<div>
 
 	
-	<form name="topicForm" ng-submit="submitForm(topicForm.$valid)" ng-style="{ 'width' : '500px', 'margin-left': '400px'}" novalidate>
+	<form name="topicForm" ng-submit="submitForm(topicForm)" ng-style="{ 'width' : '500px', 'margin-left': '400px'}" >
         <!-- USERNAME -->
-        <div class="form-group" ng-class="{ 'has-error' : topicForm.createdBy.$invalid && !topicForm.createdBy.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : topicForm.topicForm.createdBy.$invalid && !topicForm.topicForm.createdBy.$pristine }">
             <label>User name</label>
-            <input type="text" name="createdBy" class="form-control" ng-model="topicForm.createdBy" ng-maxlength="8">
-            <p ng-show="topicForm.createdBy.$error.maxlength && !topicForm.createdBy.$pristine" class="help-block">Username is too long.</p>
+            <input type="text" name="createdBy" class="form-control" ng-model="topicForm.createdBy" ng-maxlength="50">
+            <p ng-show="topicForm.topicForm.createdBy.$error.maxlength && !topicForm.topicForm.createdBy.$pristine" class="help-block">Username is too long.</p>
         </div>
             
         <!-- Title -->
@@ -28,8 +26,6 @@
             <p ng-show="topicForm.content.$error.maxlength && !topicForm.content.$pristine" class="help-block">Content is too long.</p>
             <p ng-show="topicForm.content.$invalid && !topicForm.content.$pristine" class="help-block">Content is required.</p>
         </div>
-        
-        
         
         
         <button type="submit" class="btn btn-primary">Submit</button>

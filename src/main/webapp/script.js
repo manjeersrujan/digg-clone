@@ -137,7 +137,6 @@ scotchApp.controller('creaeTopicController', function($scope, $http) {
 	globHttp = $http
 	$scope.message = '';
 	$scope.submitForm = function() {
-
 		$http({
 			method : 'POST',
 			url : 'topic',
@@ -152,7 +151,11 @@ scotchApp.controller('creaeTopicController', function($scope, $http) {
 					$scope.topicForm.$setPristine();
 				}, function errorCallback(response) {
 					console.log(response)
-					$scope.message = "Failed : " + response.statusMessage;
+					if(response.data && response.data.statusMessage){
+						$scope.message = "Failed : " +response.data.statusMessage;
+					} else{
+						$scope.message = "Failed : Title and Content is required";
+					}
 				});
 	};
 });
