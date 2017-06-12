@@ -6,8 +6,8 @@
 	<form name="topicForm" ng-submit="submitForm(topicForm)" ng-style="{ 'width' : '500px', 'margin-left': '400px'}" >
         <!-- USERNAME -->
         <div class="form-group" ng-class="{ 'has-error' : topicForm.topicForm.createdBy.$invalid && !topicForm.topicForm.createdBy.$pristine }">
-            <label>User name</label>
-            <input type="text" name="createdBy" class="form-control" ng-model="topicForm.createdBy" ng-maxlength="50">
+            <label>User name*</label>
+            <input type="text" name="createdBy" class="form-control" ng-model="topicForm.createdBy" ng-maxlength="50" required>
             <p ng-show="topicForm.topicForm.createdBy.$error.maxlength && !topicForm.topicForm.createdBy.$pristine" class="help-block">Username is too long.</p>
         </div>
             
